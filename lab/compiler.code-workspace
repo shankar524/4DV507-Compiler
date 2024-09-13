@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"antlr4.debug": {
+			"visualParseTreeHorizontal": true,
+			"visualParseTreeClustered": false
+		},
+		"antlr4.generation": {
+			"outputDir": "/Users/shankaracharya/Workspace/linn/sem1/compiler/assignment1/generated",
+			"mode": "external",
+			"language": "Java",
+			"listeners": true,
+			"visitors": true
+		},
+		"java.project.referencedLibraries": [
+			"/Users/shankaracharya/software/java_courses/jars/antlr-4.8-complete.jar"
+		],
+
+	}
+}

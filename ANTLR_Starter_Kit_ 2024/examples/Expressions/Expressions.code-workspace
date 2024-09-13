@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"antlr4.debug": {
+			"visualParseTreeHorizontal": true,
+			"visualParseTreeClustered": false
+		},
+		"antlr4.generation": {
+			"outputDir": "/Users/shankaracharya/Workspace/linn/sem1/compiler/ANTLR_Starter_Kit_ 2024/examples/Expressions/generated",
+			"mode": "external",
+			"language": "Java",
+			"listeners": true,
+			"visitors": true
+		},
+		"launch": {
+			"configurations": [
+				{
+					"type": "antlr-debug",
+					"request": "launch",
+					"name": "Debug Expressions",
+					"grammar": "/Users/shankaracharya/Workspace/linn/sem1/compiler/ANTLR_Starter_Kit_ 2024/examples/Expressions/Expressions.g4",
+					"input": "/Users/shankaracharya/Workspace/linn/sem1/compiler/ANTLR_Starter_Kit_ 2024/examples/Expressions/expr_input.txt",
+					"visualParseTree": true
+
+				}
+			]
+		},
+		"java.project.referencedLibraries": [
+			"/Users/shankaracharya/software/java_courses/jar/antlr-4.8-complete.jar"
+		],
+
+	}
+}
