@@ -22,7 +22,7 @@
 					"type": "antlr-debug",
 					"request": "launch",
 					"name": "Debug Expressions",
-					"grammar": "/Users/shankaracharya/Workspace/linn/sem1/compiler/assignment1/Expression.g4",
+					"grammar": "Users/shankaracharya/Workspace/linn/sem1/compiler/assignment1/Expression.g4",
 					"input": "/Users/shankaracharya/Workspace/linn/sem1/compiler/assignment1/tests/basic.ofp",
 					"visualParseTree": true
 				}

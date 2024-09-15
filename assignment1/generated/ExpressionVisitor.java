@@ -19,29 +19,17 @@ public interface ExpressionVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStart(ExpressionParser.StartContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ExpressionParser#nonVoidTypes}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNonVoidTypes(ExpressionParser.NonVoidTypesContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ExpressionParser#returnType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitReturnType(ExpressionParser.ReturnTypeContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ExpressionParser#function}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitFunction(ExpressionParser.FunctionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ExpressionParser#paramList}.
+	 * Visit a parse tree produced by {@link ExpressionParser#parameterList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParamList(ExpressionParser.ParamListContext ctx);
+	T visitParameterList(ExpressionParser.ParameterListContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ExpressionParser#param}.
 	 * @param ctx the parse tree
@@ -61,17 +49,29 @@ public interface ExpressionVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatement(ExpressionParser.StatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ExpressionParser#variableDeclaration}.
+	 * Visit a parse tree produced by {@link ExpressionParser#declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariableDeclaration(ExpressionParser.VariableDeclarationContext ctx);
+	T visitDeclaration(ExpressionParser.DeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#returnStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnStatement(ExpressionParser.ReturnStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ExpressionParser#assignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAssignment(ExpressionParser.AssignmentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#controlStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitControlStatement(ExpressionParser.ControlStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ExpressionParser#ifStatement}.
 	 * @param ctx the parse tree
@@ -85,6 +85,12 @@ public interface ExpressionVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElseStatement(ExpressionParser.ElseStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#whileStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhileStatement(ExpressionParser.WhileStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ExpressionParser#printStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -97,15 +103,63 @@ public interface ExpressionVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpression(ExpressionParser.ExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#functionInvocation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionInvocation(ExpressionParser.FunctionInvocationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#argumentList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgumentList(ExpressionParser.ArgumentListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#arrayItemAccess}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayItemAccess(ExpressionParser.ArrayItemAccessContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#lengthOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLengthOperation(ExpressionParser.LengthOperationContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ExpressionParser#literals}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitLiterals(ExpressionParser.LiteralsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ExpressionParser#numericLiterals}.
+	 * Visit a parse tree produced by {@link ExpressionParser#arrayLiteral}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNumericLiterals(ExpressionParser.NumericLiteralsContext ctx);
+	T visitArrayLiteral(ExpressionParser.ArrayLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#arrayInitialization}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayInitialization(ExpressionParser.ArrayInitializationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#returnType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnType(ExpressionParser.ReturnTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#arrayType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayType(ExpressionParser.ArrayTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ExpressionParser#type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitType(ExpressionParser.TypeContext ctx);
 }
