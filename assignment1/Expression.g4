@@ -5,10 +5,7 @@ grammar Expression;
     package generated;
 }
 
-// ()
-// |
-
-// Parsers
+/// Parsers
 start      : function+ EOF;
 function: returnType ID '(' parameterList? ')' block;
 parameterList: param (',' param)*;
@@ -23,9 +20,9 @@ statement: (declaration
         | controlStatement;
 
 // Variable declaration
-declaration: type ID ('=' (arrayInitialization | expression))?;
+declaration: type ID ('=' expression)?;
 returnStatement: 'return' expression;
-assignment: (ID | arrayItemAccess) '=' expression;
+assignment: ID '=' expression;
 
 controlStatement : ifStatement | whileStatement;
 
@@ -36,31 +33,24 @@ whileStatement: 'while' '(' expression ')' (block  | statement);
 
 printStatement: PRINT_FUNCTION '(' expression ')';
 expression : functionInvocation
-    //| arrayItemAccess
     | '(' expression ')'
     | expression ('/' | '*') expression
     | expression ('+' | '-') expression
     | expression ('<' | '>' | '==') expression
     | expression ('&&' | '||') expression
     | '-' expression
-    | arrayItemAccess
     | ID
     | lengthOperation
     | literals;
 
 functionInvocation: ID '(' argumentList? ')';
 argumentList: expression (',' expression)*;
-arrayItemAccess: ID '[' expression ']';
 lengthOperation: (STRING_LITERAL | ID)'.length';
 
 literals: INTEGER_LITERAL | FLOAT_LITERAL | BOOL_LITERAL | CHAR_LITERAL | STRING_LITERAL;
-arrayLiteral:'{' (expression (',' expression)*)? '}';
-
-arrayInitialization: 'new' arrayType '[' INTEGER_LITERAL ']' | arrayLiteral;
 
 returnType: VOID | type;
-arrayType: INT | FLOAT | CHAR;
-type: INT | FLOAT | BOOL | CHAR | STRING | INT '[]' | FLOAT '[]' | CHAR '[]';
+type: INT | FLOAT | BOOL | CHAR | STRING;
 
 // LEXERS
 // Keywords
@@ -77,7 +67,6 @@ PRINT_FUNCTION: 'print' | 'println';
 // Whitespace and comments
 COMMENT     : '#' ~[\r\n]* -> skip;
 WS	:	[ \t\r\n]+ -> skip ;
-
 
 // Literals
 INTEGER_LITERAL : ('0' | '-'?[1-9] Digits?);
